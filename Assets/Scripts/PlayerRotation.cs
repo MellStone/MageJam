@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    PlayerMovement movement;
+    Transform model;
+
+    private void Awake()
     {
-        
+        model = transform.GetChild(0);
+        movement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (movement.movement.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movement.movement);
+            model.rotation = Quaternion.Lerp(model.rotation, targetRotation, Time.deltaTime * movement.rotateSpeed);
+        }
     }
 }
