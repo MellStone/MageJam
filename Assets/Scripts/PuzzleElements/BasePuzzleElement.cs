@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BasePuzzleElement : MonoBehaviour
 {
     public bool isActive;
+    //[SerializeField] protected animations
 
     public abstract void Activate();
 
