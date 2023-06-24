@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class S_MindControl : ShadowPuzzleElement
 {
-    [SerializeField] private BasePuzzleElement _elementToActivate;  //can be made public if we want player to choose element to activate
+    [SerializeField] private MindControlTargetElement _elementToActivate;  //can be made public if we want player to choose element to activate
     private void Start()
     {
         //Activate(); //testing

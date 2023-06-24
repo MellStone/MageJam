@@ -29,44 +29,62 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
         if(Input.GetKeyDown("e") && _distanceToClosesElement <= _interactionDistance)
         {
             if(_closestElement != null)
-            {
-                //_closestElement.Activate();
-                if(_closestElement.transform.TryGetComponent(out IcePuzzleElement iceElement))
+            {               
+                if(!_closestElement.isActive)
                 {
-                    if(_iceElement == null)
+                    _closestElement.Activate();
+                    if (_closestElement.transform.TryGetComponent(out IcePuzzleElement iceElement) && _iceElement == null)
                     {
                         _iceElement = iceElement;
-                        _iceElement.Activate();
                     }
-                    else
+                    else if (_iceElement != null)
                     {
                         _iceElement.Deactivate();
                         _iceElement = iceElement;
-                        _iceElement.Activate();
                     }
-                    
-                }
-                else if (_closestElement.transform.TryGetComponent(out ShadowPuzzleElement shadowElement))
-                {
-                    if (_shadowElement == null)
+                    else if(_closestElement.transform.TryGetComponent(out ShadowPuzzleElement shadowElement) && _shadowElement == null)
                     {
                         _shadowElement = shadowElement;
-                        _shadowElement.Activate();
                     }
-                    else
+                    else if(_shadowElement != null)
                     {
                         _shadowElement.Deactivate();
                         _shadowElement = shadowElement;
-                        _shadowElement.Activate();
                     }
                 }
-                else
-                {
-                    _closestElement.Activate();
-                }
 
+                else if(_closestElement.isActive)
+                {
+                    _closestElement.Deactivate();
+                    if (_closestElement.transform.TryGetComponent(out IcePuzzleElement iceElement))
+                    {
+                        /*if(_iceElement.isActive)
+                        {
+                            _iceElement.Deactivate();
+                        }  */                     
+                        _iceElement = null;
+                    }
+                    else if (_closestElement.transform.TryGetComponent(out ShadowPuzzleElement shadowElement))
+                    {
+                        /*if (_shadowElement.isActive)
+                        {
+                            _shadowElement.Deactivate();
+                        }*/
+                        _shadowElement = null;
+                    }
+                }
             }
             
         }
     }
+
+    /*private void DeactivateIceElement(IcePuzzleElement iceElement)
+    {
+        iceElement.Deactivate();
+    }
+
+    private void DeactivateShadowElement(ShadowPuzzleElement shadowElement)
+    {
+        shadowElement.Deactivate();
+    }*/
 }

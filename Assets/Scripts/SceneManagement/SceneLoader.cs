@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.P)) //testing
+        if(Input.GetKeyDown(KeyCode.P)) //testing
         {
             if(_activeScene == null)
             {
@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
                 UnloadAdditiveScene(_activeScene);
 
             }
-        }*/
+        }
     }
 
     public string ChooseRandomScene()
