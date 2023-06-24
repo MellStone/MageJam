@@ -7,7 +7,7 @@ public class S_MindControl : ShadowPuzzleElement
     [SerializeField] private MindControlTargetElement _elementToActivate;  //can be made public if we want player to choose element to activate
     private void Start()
     {
-        //Activate(); //testing
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public override void Activate()

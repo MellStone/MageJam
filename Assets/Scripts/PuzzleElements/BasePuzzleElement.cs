@@ -8,10 +8,7 @@ public abstract class BasePuzzleElement : MonoBehaviour
     //[SerializeField] protected animations
     protected AudioSource _audioSource;
 
-    private void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
+    protected ParticleSystem _particle;
 
     public abstract void Activate();
 
@@ -20,5 +17,15 @@ public abstract class BasePuzzleElement : MonoBehaviour
     protected void PlayAudioClip()
     {
         _audioSource.Play();
+    }
+
+    protected void StartParticles()
+    {
+        _particle.Play();
+    }
+
+    protected void StopParticles()
+    {
+        _particle.Stop();
     }
 }
