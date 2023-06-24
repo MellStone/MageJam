@@ -8,6 +8,7 @@ public class I_Freeze : IcePuzzleElement
     {
         Debug.Log("Freeze activated");
         isActive = true;
+        PlayAudioClip();
         //freeze element
     }
 

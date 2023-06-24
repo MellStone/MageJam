@@ -14,6 +14,7 @@ public class S_MindControl : ShadowPuzzleElement
     {
         Debug.Log("Mind Control activated");
         isActive = true;
+        PlayAudioClip();
         _elementToActivate.Activate();
         //make npc channel
     }

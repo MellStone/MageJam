@@ -14,6 +14,7 @@ public class F_Candle : FirePuzzleElement
     {
         Debug.Log("Candle activated");
         isActive = true;
+        PlayAudioClip();
         //Start burning coroutine
         StartCoroutine(BurnCandle(_burnDuration));
         //change animation from inactive to burning

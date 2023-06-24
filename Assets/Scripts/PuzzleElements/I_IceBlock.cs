@@ -8,6 +8,7 @@ public class I_IceBlock : IcePuzzleElement
     {
         Debug.Log("Ice Block activated");
         isActive = true;
+        PlayAudioClip();
         //spawn ice block
     }
 

@@ -8,6 +8,7 @@ public class S_ObjectControl : ShadowPuzzleElement
     {
         Debug.Log("Object Control activated");
         isActive = true;
+        PlayAudioClip();
     }
 
     public override void Deactivate()

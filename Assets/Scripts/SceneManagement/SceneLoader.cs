@@ -19,7 +19,6 @@ public class SceneLoader : MonoBehaviour
             else 
             {
                 UnloadAdditiveScene(_activeScene);
-
             }
         }
     }
