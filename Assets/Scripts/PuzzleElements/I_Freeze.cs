@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class I_Freeze : IcePuzzleElement
 {
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
     public override void Activate()
     {
         Debug.Log("Freeze activated");
         isActive = true;
+        PlayAudioClip();
         //freeze element
     }
 

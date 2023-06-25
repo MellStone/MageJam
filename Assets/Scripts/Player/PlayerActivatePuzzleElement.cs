@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerActivatePuzzleElement : MonoBehaviour
@@ -18,14 +19,25 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
         {
             if(hit.transform.TryGetComponent(out BasePuzzleElement puzzleElement))
             {
-                _closestElement = puzzleElement; 
+                _closestElement = puzzleElement;
+                break;
             }
         }
         if(_closestElement != null)
         {
             _distanceToClosesElement = (transform.position - _closestElement.transform.position).magnitude;
             //Debug.Log(_distanceToClosesElement);
+            if (_distanceToClosesElement <= _interactionDistance)
+            {
+                _closestElement.StartInteractionParticles();
+            }
+            else if(_distanceToClosesElement > _interactionDistance)
+            {
+                _closestElement.StopInteractionParticles();
+            }
         }
+
+        
         if(Input.GetKeyDown("e") && _distanceToClosesElement <= _interactionDistance)
         {
             if(_closestElement != null)
@@ -37,7 +49,7 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
                     {
                         _iceElement = iceElement;
                     }
-                    else if (_iceElement != null)
+                    else if (_iceElement != null && _closestElement is IcePuzzleElement)
                     {
                         _iceElement.Deactivate();
                         _iceElement = iceElement;
@@ -46,7 +58,7 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
                     {
                         _shadowElement = shadowElement;
                     }
-                    else if(_shadowElement != null)
+                    else if(_shadowElement != null && _closestElement is ShadowPuzzleElement)
                     {
                         _shadowElement.Deactivate();
                         _shadowElement = shadowElement;
@@ -57,19 +69,11 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
                 {
                     _closestElement.Deactivate();
                     if (_closestElement.transform.TryGetComponent(out IcePuzzleElement iceElement))
-                    {
-                        /*if(_iceElement.isActive)
-                        {
-                            _iceElement.Deactivate();
-                        }  */                     
+                    {                
                         _iceElement = null;
                     }
                     else if (_closestElement.transform.TryGetComponent(out ShadowPuzzleElement shadowElement))
                     {
-                        /*if (_shadowElement.isActive)
-                        {
-                            _shadowElement.Deactivate();
-                        }*/
                         _shadowElement = null;
                     }
                 }
@@ -77,14 +81,4 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
             
         }
     }
-
-    /*private void DeactivateIceElement(IcePuzzleElement iceElement)
-    {
-        iceElement.Deactivate();
-    }
-
-    private void DeactivateShadowElement(ShadowPuzzleElement shadowElement)
-    {
-        shadowElement.Deactivate();
-    }*/
 }

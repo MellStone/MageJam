@@ -6,6 +6,7 @@ public class PlayerRotation : MonoBehaviour
 {
     PlayerMovement movement;
     Transform model;
+    [SerializeField] private float rotateSpeed;
 
     private void Awake()
     {
@@ -15,10 +16,10 @@ public class PlayerRotation : MonoBehaviour
 
     void Update()
     {
-        if (movement.movement.magnitude > 0.1f)
+        if (movement.moveDirection.magnitude > 0.1f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(movement.movement);
-            model.rotation = Quaternion.Lerp(model.rotation, targetRotation, Time.deltaTime * movement.rotateSpeed);
+            Quaternion targetRotation = Quaternion.LookRotation(movement.moveDirection);
+            model.rotation = Quaternion.Lerp(model.rotation, targetRotation, Time.deltaTime * rotateSpeed);
         }
     }
 }

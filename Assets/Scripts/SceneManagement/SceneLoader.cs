@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private string[] _sceneNames;
+    [SerializeField] private GameObject _loadingScreen;
+    [SerializeField] private GameObject _player;
     private string _activeScene = null;
 
-    private void Update()
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.P)) //testing
-        {
-            if(_activeScene == null)
-            {
-                LoadAdditiveScene(ChooseRandomScene());
-            }
-            else 
-            {
-                UnloadAdditiveScene(_activeScene);
+        StartCoroutine(AsyncInitLoad(ChooseRandomScene()));
+    } 
 
-            }
-        }
+    private void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(AsyncSwapActiveScenes(ChooseRandomScene()));
     }
 
     public string ChooseRandomScene()
@@ -29,15 +26,36 @@ public class SceneLoader : MonoBehaviour
         string chosenScene = _sceneNames[Random.Range(0, _sceneNames.Length)];
         return chosenScene;
     }
-    public void LoadAdditiveScene(string name)
+
+    IEnumerator AsyncInitLoad(string name)
     {
-        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        _loadingScreen.SetActive(true);
         _activeScene = name;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        _loadingScreen.SetActive(false);
     }
 
-    public void UnloadAdditiveScene(string name)
+    IEnumerator AsyncSwapActiveScenes(string newSceneName)
     {
-        SceneManager.UnloadScene(name);
-        _activeScene = null;
+        _loadingScreen.SetActive(true);
+        _player.transform.position = Vector3.zero;
+        //unload scene
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(_activeScene);
+        while (!asyncUnload.isDone)
+        {
+            yield return null;
+        }
+        //load scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(newSceneName, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        _activeScene = newSceneName;
+        _loadingScreen.SetActive(false);
     }
 }

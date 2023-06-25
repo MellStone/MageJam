@@ -8,12 +8,13 @@ public class F_Candle : FirePuzzleElement
 
     private void Start()
     {
-        //Activate(); //testing
+        _audioSource = GetComponent<AudioSource>();
     }
     public override void Activate()
     {
         Debug.Log("Candle activated");
         isActive = true;
+        PlayAudioClip();
         //Start burning coroutine
         StartCoroutine(BurnCandle(_burnDuration));
         //change animation from inactive to burning
