@@ -27,7 +27,17 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
         {
             _distanceToClosesElement = (transform.position - _closestElement.transform.position).magnitude;
             //Debug.Log(_distanceToClosesElement);
+            if (_distanceToClosesElement <= _interactionDistance)
+            {
+                _closestElement.StartInteractionParticles();
+            }
+            else if(_distanceToClosesElement > _interactionDistance)
+            {
+                _closestElement.StopInteractionParticles();
+            }
         }
+
+        
         if(Input.GetKeyDown("e") && _distanceToClosesElement <= _interactionDistance)
         {
             if(_closestElement != null)
