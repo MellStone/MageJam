@@ -4,19 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoader : MonoBehaviour
+public class TutorialSceneLoader : MonoBehaviour
 {
-    [SerializeField] private string[] _sceneNames;
+    [SerializeField] private List<string> _sceneNames;
     [SerializeField] private GameObject _loadingScreen;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _spawnPoint;
+    [SerializeField] private EndTutorialWindow _endWindow;
     private string _activeScene = null;
+    private int _tutorialLevelCounter = 0;
     private bool _isColliding;
 
     private void Start()
     {
         _isColliding = false;
-        StartCoroutine(AsyncInitLoad(ChooseRandomScene()));
+        StartCoroutine(AsyncInitLoad(_sceneNames[_tutorialLevelCounter]));   
     }
 
     private void Update()
@@ -28,13 +30,18 @@ public class SceneLoader : MonoBehaviour
     {
         if (_isColliding) return;
         _isColliding = true;
-        StartCoroutine(AsyncSwapActiveScenes(ChooseRandomScene()));
-    }
+        if (_tutorialLevelCounter < _sceneNames.Count - 1)
+        {
+            _tutorialLevelCounter++;
+            StartCoroutine(AsyncSwapActiveScenes(_sceneNames[_tutorialLevelCounter]));
+        }
+        else if (_tutorialLevelCounter >= _sceneNames.Count - 1)
+        {
+            _endWindow.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        Debug.Log("entered");
 
-    public string ChooseRandomScene()
-    {
-        string chosenScene = _sceneNames[Random.Range(0, _sceneNames.Length)];
-        return chosenScene;
     }
 
     IEnumerator AsyncInitLoad(string name)
