@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5641b75a273d16148a6d7cc08608632f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionDistance: 4
+  _interactionDistance: 3
   _puzzleElementLayer:
     serializedVersion: 2
     m_Bits: 64
