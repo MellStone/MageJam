@@ -8,7 +8,7 @@ public class F_Candle : FirePuzzleElement
 
     private void Start()
     {
-        //Activate(); //testing
+        _audioSource = GetComponent<AudioSource>();
     }
     public override void Activate()
     {
