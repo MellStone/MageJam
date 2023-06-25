@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class BasePuzzleElement : MonoBehaviour
 {
     public bool isActive;
-    //[SerializeField] protected animations
     protected AudioSource _audioSource;
 
     protected ParticleSystem _particle;

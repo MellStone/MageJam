@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class F_Candle : FirePuzzleElement
 {
-    //private
+    [SerializeField] private ParticleSystem _flameParticle;
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class F_Candle : FirePuzzleElement
         //Start burning coroutine
         StartCoroutine(BurnCandle(_burnDuration));
         //change animation from inactive to burning
+        _flameParticle.Play();
     }
 
     public override void Deactivate() 
@@ -25,6 +26,7 @@ public class F_Candle : FirePuzzleElement
         Debug.Log("Candle Deactivated");
         isActive = false;
         //change animation from burning to inactive
+        _flameParticle.Stop();
     }
 
     IEnumerator BurnCandle(float duration)

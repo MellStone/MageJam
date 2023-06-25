@@ -968,7 +968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5.0000076, y: 0}
+  m_AnchoredPosition: {x: -5.0000153, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &672876050
@@ -3743,7 +3743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12261c309ee0de841a10f977a3f08d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tutorialSceneName: TutorialBaseScene
+  _tutorialSceneName: HowToPlay
   _normalSceneName: BaseScene
   _playButton: {fileID: 1371724124}
   _optionsButton: {fileID: 1636752008}
