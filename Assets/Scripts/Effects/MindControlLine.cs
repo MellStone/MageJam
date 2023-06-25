@@ -25,7 +25,7 @@ public class MindControlLine : MonoBehaviour
             _line.startWidth = 0.1f;
             _line.endWidth = 0.1f;
             _line.SetPositions(pos.ToArray());
-            _line.useWorldSpace = true;
+            //_line.useWorldSpace = true;
         }    
         else
         {

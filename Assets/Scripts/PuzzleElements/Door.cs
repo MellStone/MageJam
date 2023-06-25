@@ -6,12 +6,11 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private List<KeyElement> _keys = new List<KeyElement>();
     private bool _isOpened;
-    private Animation _anim;
+    [SerializeField] private Animation _anim;
 
     private void Awake()
     {
         _isOpened = false;
-        _anim = GetComponent<Animation>();
     }
 
     private void Update()

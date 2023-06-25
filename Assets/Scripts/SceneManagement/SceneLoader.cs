@@ -9,15 +9,25 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private string[] _sceneNames;
     [SerializeField] private GameObject _loadingScreen;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _spawnPoint;
     private string _activeScene = null;
+    private bool _isColliding;
 
     private void Start()
     {
+        _isColliding = false;
         StartCoroutine(AsyncInitLoad(ChooseRandomScene()));
-    } 
+    }
+
+    private void Update()
+    {
+        _isColliding = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_isColliding) return;
+        _isColliding = true;
         StartCoroutine(AsyncSwapActiveScenes(ChooseRandomScene()));
     }
 
@@ -42,7 +52,7 @@ public class SceneLoader : MonoBehaviour
     IEnumerator AsyncSwapActiveScenes(string newSceneName)
     {
         _loadingScreen.SetActive(true);
-        _player.transform.position = Vector3.zero;
+        _player.transform.position = _spawnPoint.transform.position;
         //unload scene
         AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(_activeScene);
         while (!asyncUnload.isDone)

@@ -130,8 +130,8 @@ Transform:
   m_GameObject: {fileID: 416722774971760120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 416722774491270667}
   m_Father: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94dfb0f3a03a8b8498a3b360f35d281f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 4
   GroundDrag: 0
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &416722774971760112
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5641b75a273d16148a6d7cc08608632f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionDistance: 1.5
+  _interactionDistance: 3
   _puzzleElementLayer:
     serializedVersion: 2
     m_Bits: 64
