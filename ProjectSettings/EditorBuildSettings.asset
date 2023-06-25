@@ -4,5 +4,41 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3976bfac2594aef4b938326735877e88
+  - enabled: 1
+    path: Assets/Scenes/BaseScene.unity
+    guid: 75ec730f2d385d84fa1a9367287937d6
+  - enabled: 1
+    path: Assets/Scenes/TutorialBaseScene.unity
+    guid: 74b26402a9614b2428173ae67668c817
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 6597297cdd606294d85fa5a952b4e6ca
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/AS0.unity
+    guid: 773ee6c2c8e39b249b10883a08d4d84e
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/AS1.unity
+    guid: 392fdcc54bb9fe44ea858173bfee4d48
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/AS2.unity
+    guid: c8b2c2ff24b22f442b33d60a9534a6d9
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS0.unity
+    guid: e8000cc3e0cba4a4f9cd0305ca9553d8
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS1.unity
+    guid: fea5e1b95ac20584a88881b9172a34d8
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS2.unity
+    guid: d7b0eaeb434ce9c45b465bf4303b8883
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS3.unity
+    guid: 89975769236b9774e88732749932f67a
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS4.unity
+    guid: ff06c25889efd684e9a182a52afd69bc
   m_configObjects: {}
