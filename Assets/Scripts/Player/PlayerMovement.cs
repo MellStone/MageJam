@@ -11,10 +11,11 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 moveDirection;
     private Rigidbody rb;
-
+    private Animator animator;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // calculate movement direction
         moveDirection = new Vector3(horizontalInput, 0, verticalInput);
-
+        Animation();
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 
@@ -55,5 +56,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
 
         }
-    }  
+    }
+    private void Animation()
+    {
+        if (moveDirection != Vector3.zero)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else animator.SetBool("isWalking", false);
+    }
 }

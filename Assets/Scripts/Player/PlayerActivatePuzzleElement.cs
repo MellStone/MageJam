@@ -11,7 +11,12 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
     private float _distanceToClosesElement;
     [SerializeField] private float _interactionDistance;
     [SerializeField] private LayerMask _puzzleElementLayer;
+    private Animator animator;
 
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     private void Update()
     {
         Collider[] hitElements = Physics.OverlapSphere(transform.position, _interactionDistance, _puzzleElementLayer);
@@ -45,6 +50,8 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
                 if(!_closestElement.isActive)
                 {
                     _closestElement.Activate();
+                    animator.SetBool("isSpellCast", true);
+
                     if (_closestElement.transform.TryGetComponent(out IcePuzzleElement iceElement) && _iceElement == null)
                     {
                         _iceElement = iceElement;
@@ -78,7 +85,10 @@ public class PlayerActivatePuzzleElement : MonoBehaviour
                     }
                 }
             }
-            
+        }
+        if (Input.GetKeyUp("e"))
+        {
+            animator.SetBool("isSpellCast", false);
         }
     }
 }
