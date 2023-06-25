@@ -688,25 +688,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 416722774971760114, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
-      propertyPath: moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -747,10 +731,6 @@ PrefabInstance:
     - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416722774971760117, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 416722774971760120, guid: bccc67f1711663a4082e6a32fa26448a, type: 3}
       propertyPath: m_Name
@@ -853,6 +833,8 @@ MonoBehaviour:
   - T_AS0
   - T_AS1
   - T_AS2
+  - T_AS3
+  - T_AS4
   _loadingScreen: {fileID: 638777523}
   _player: {fileID: 1803761413}
   _spawnPoint: {fileID: 342531617}

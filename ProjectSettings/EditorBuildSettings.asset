@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS2.unity
     guid: d7b0eaeb434ce9c45b465bf4303b8883
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS3.unity
+    guid: 89975769236b9774e88732749932f67a
+  - enabled: 1
+    path: Assets/Scenes/AdditiveScenes/Tutorial Scenes/T_AS4.unity
+    guid: ff06c25889efd684e9a182a52afd69bc
   m_configObjects: {}
